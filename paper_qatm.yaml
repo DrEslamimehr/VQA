@@ -1,0 +1,89 @@
+{
+  "experiment": {
+    "name": "qatm_paper_reconstruction",
+    "provenance": "clean_room_reverse_engineered_from_pdf",
+    "seeds": [101, 202, 303, 404, 505],
+    "reported_table": {
+      "edge_nn": {"wesad_f1": "0.82+-0.04", "physionet_f1": "0.78+-0.05", "parameters": 120000, "latency_ms": 45, "energy_mj": 12},
+      "classical_marl": {"wesad_f1": "0.89+-0.03", "physionet_f1": "0.85+-0.04", "parameters": 2500000, "latency_ms": 320, "energy_mj": 85},
+      "fed_tn": {"wesad_f1": "0.91+-0.02", "physionet_f1": "0.88+-0.03", "parameters": 450000, "latency_ms": 180, "energy_mj": 45},
+      "qatm_noiseless": {"wesad_f1": "0.97+-0.01", "physionet_f1": "0.94+-0.02", "parameters": 8500, "latency_ms": 85, "energy_mj": 18},
+      "qatm_nisq_noise": {"wesad_f1": "0.94+-0.02", "physionet_f1": "0.91+-0.03", "parameters": 8500}
+    }
+  },
+  "paths": {
+    "raw_root": "data/raw",
+    "processed_root": "data/processed",
+    "checkpoint_dir": "artifacts/checkpoints",
+    "report_dir": "artifacts/reports"
+  },
+  "dataset": {
+    "mode": "real_or_synthetic",
+    "tasks": ["wesad", "physionet2015"],
+    "window_seconds": 10.0,
+    "stride_seconds": 5.0,
+    "channels": ["ecg", "ppg", "eda", "emg", "resp"],
+    "wesad": {
+      "sample_rate_hz": 700,
+      "subjects": ["S2", "S3", "S4", "S5", "S6", "S7", "S8", "S9", "S10", "S11", "S13", "S14", "S15", "S16", "S17"],
+      "test_subjects": ["S16", "S17"],
+      "stress_label": 2,
+      "normal_labels": [1, 3, 4]
+    },
+    "physionet2015": {
+      "sample_rate_hz": 250,
+      "alarm_time_seconds": 300,
+      "label_positive": "true"
+    },
+    "synthetic": {
+      "samples_per_task": 240,
+      "sample_rate_hz": 128,
+      "channels": 5,
+      "window_samples": 256,
+      "positive_fraction": 0.5
+    }
+  },
+  "feature_model": {
+    "type": "int8_1d_cnn",
+    "target_flash_kb": 45,
+    "output_dim": 6,
+    "layers": [
+      {"out_channels": 16, "kernel": 5},
+      {"out_channels": 32, "kernel": 5},
+      {"out_channels": 48, "kernel": 3}
+    ]
+  },
+  "tensor_memory": {
+    "type": "mps",
+    "sites": 6,
+    "physical_dim": 6,
+    "bond_dim": 16,
+    "learning_rate": 0.001,
+    "dp_epsilon": 2.0,
+    "dp_delta": 0.00001,
+    "dp_noise_scale": 0.001
+  },
+  "quantum_policy": {
+    "n_qubits": 6,
+    "layers": 4,
+    "ansatz": "angle_embedding_strongly_entangling_layers_ring",
+    "optimizer": "adam",
+    "learning_rate": 0.01,
+    "discount_factor": 0.99,
+    "batch_size": 32,
+    "episodes": 500,
+    "noise": {
+      "enabled": false,
+      "depolarizing_gamma": 0.01,
+      "amplitude_damping_gamma": 0.01
+    },
+    "parameter_count_target": 8500
+  },
+  "benchmark": {
+    "esp32_ram_kb": 520,
+    "latency_budget_ms": 100,
+    "energy_budget_mj": 20,
+    "software_repetitions": 50
+  }
+}
+

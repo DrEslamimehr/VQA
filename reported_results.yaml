@@ -1,0 +1,21 @@
+{
+  "paper_table_2": {
+    "Edge-NN (Classical)": {"WESAD": "0.82+-0.04", "PhysioNet": "0.78+-0.05", "parameters": 120000},
+    "Classical MARL": {"WESAD": "0.89+-0.03", "PhysioNet": "0.85+-0.04", "parameters": 2500000},
+    "Fed-TN (Classical)": {"WESAD": "0.91+-0.02", "PhysioNet": "0.88+-0.03", "parameters": 450000},
+    "QA-TM (Ours, Noiseless)": {"WESAD": "0.97+-0.01", "PhysioNet": "0.94+-0.02", "parameters": 8500},
+    "QA-TM (Ours, NISQ Noise)": {"WESAD": "0.94+-0.02", "PhysioNet": "0.91+-0.03", "parameters": 8500}
+  },
+  "paper_ablation": {
+    "full_model": 0.97,
+    "without_tn_memory": 0.86,
+    "without_quantum_policy": 0.89
+  },
+  "paper_latency_energy": {
+    "Edge-NN": {"latency_ms": 45, "energy_mj": 12},
+    "Classical-MARL": {"latency_ms": 320, "energy_mj": 85},
+    "Fed-TN": {"latency_ms": 180, "energy_mj": 45},
+    "QA-TM": {"latency_ms": 85, "energy_mj": 18}
+  }
+}
+

@@ -1,0 +1,18 @@
+{
+  "paper_budget": {
+    "energy_budget_mj": 20,
+    "latency_budget_ms": 100
+  },
+  "paper_reported": {
+    "energy_mj": 18,
+    "latency_ms": 85,
+    "parameters": 8500,
+    "physionet_f1": "0.94+-0.02",
+    "wesad_f1": "0.97+-0.01"
+  },
+  "software": {
+    "max_ms": 27.539124988834374,
+    "mean_ms": 9.038388126973587,
+    "p95_ms": 13.96495834633236
+  }
+}

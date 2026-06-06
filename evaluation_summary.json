@@ -1,0 +1,88 @@
+{
+  "measured": [
+    {
+      "accuracy": 0.5666666666666667,
+      "checkpoint": "qatm_reference",
+      "confusion": {
+        "fn": 1,
+        "fp": 25,
+        "tn": 0,
+        "tp": 34
+      },
+      "f1": 0.723404255319149,
+      "n_test": 60,
+      "parameter_report": {
+        "feature_flash_bytes": 45212,
+        "feature_model": 7958,
+        "quantum_policy": 8500,
+        "tensor_memory": 6336
+      },
+      "task": "wesad"
+    },
+    {
+      "accuracy": 0.55,
+      "checkpoint": "qatm_reference",
+      "confusion": {
+        "fn": 1,
+        "fp": 26,
+        "tn": 0,
+        "tp": 33
+      },
+      "f1": 0.7096774193548386,
+      "n_test": 60,
+      "parameter_report": {
+        "feature_flash_bytes": 45212,
+        "feature_model": 7958,
+        "quantum_policy": 8500,
+        "tensor_memory": 6336
+      },
+      "task": "physionet2015"
+    }
+  ],
+  "paper_reported_table": {
+    "classical_marl": {
+      "energy_mj": 85,
+      "latency_ms": 320,
+      "parameters": 2500000,
+      "physionet_f1": "0.85+-0.04",
+      "wesad_f1": "0.89+-0.03"
+    },
+    "edge_nn": {
+      "energy_mj": 12,
+      "latency_ms": 45,
+      "parameters": 120000,
+      "physionet_f1": "0.78+-0.05",
+      "wesad_f1": "0.82+-0.04"
+    },
+    "fed_tn": {
+      "energy_mj": 45,
+      "latency_ms": 180,
+      "parameters": 450000,
+      "physionet_f1": "0.88+-0.03",
+      "wesad_f1": "0.91+-0.02"
+    },
+    "qatm_nisq_noise": {
+      "parameters": 8500,
+      "physionet_f1": "0.91+-0.03",
+      "wesad_f1": "0.94+-0.02"
+    },
+    "qatm_noiseless": {
+      "energy_mj": 18,
+      "latency_ms": 85,
+      "parameters": 8500,
+      "physionet_f1": "0.94+-0.02",
+      "wesad_f1": "0.97+-0.01"
+    }
+  },
+  "provenance": "clean_room_reverse_engineered_from_pdf",
+  "summary": {
+    "physionet2015": {
+      "mean": 0.7096774193548386,
+      "std": 0.0
+    },
+    "wesad": {
+      "mean": 0.723404255319149,
+      "std": 0.0
+    }
+  }
+}

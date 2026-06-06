@@ -1,0 +1,27 @@
+{
+  "note": "Checkpoint produced by train_qatm.py for the specified config and available datasets.",
+  "parameter_report": {
+    "feature_flash_bytes": 38396,
+    "feature_model": 1394,
+    "quantum_policy": 8500,
+    "tensor_memory": 432
+  },
+  "provenance": "deterministic_synthetic_fixture",
+  "seed": 7,
+  "training_results": [
+    {
+      "episodes": 3,
+      "loss": 0.6928315150057388,
+      "seed": 7,
+      "task": "wesad",
+      "test_f1": 0.0
+    },
+    {
+      "episodes": 3,
+      "loss": 0.6935517860554118,
+      "seed": 7,
+      "task": "physionet2015",
+      "test_f1": 0.0
+    }
+  ]
+}

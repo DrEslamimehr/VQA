@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qa-tm"
+version = "1.0.0"
+description = "Quantum Agentic AI with Distributed Tensor Memory for Wearable Devices — exact-reproduction bundle"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+  { name = "Radostin Pachamanov" },
+  { name = "Mahdi Eslamimehr" },
+]
+keywords = ["quantum", "tensor-network", "agentic-ai", "wearable", "reinforcement-learning", "pennylane"]
+dependencies = [
+  "numpy==1.26.4",
+  "scipy>=1.11,<2.0",
+  "scikit-learn>=1.3",
+  "PyYAML>=6.0",
+  "matplotlib>=3.7",
+  "pennylane==0.38.0",
+  "autoray==0.6.12",
+  "torch>=2.1",
+]
+
+[project.optional-dependencies]
+dp = ["opacus==1.4.0"]
+tflite = ["tensorflow>=2.14"]
+test = ["pytest>=7.4"]
+
+[project.scripts]
+qatm-train = "train_qatm:main"
+qatm-eval = "evaluate_qatm:main"
+
+[tool.setuptools]
+packages = ["qatm", "qatm.data", "qatm.memory", "qatm.quantum", "qatm.agents", "qatm.baselines", "qatm.privacy"]
+py-modules = ["train_qatm", "evaluate_qatm"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

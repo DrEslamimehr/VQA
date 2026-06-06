@@ -1,0 +1,6 @@
+#pragma once
+
+// Generate this file from a quantized TFLite Micro model before flashing.
+extern const unsigned char qatm_model_tflite[];
+extern const unsigned int qatm_model_tflite_len;
+

@@ -1,0 +1,18 @@
+{
+  "training": [
+    {
+      "episodes": 3,
+      "loss": 0.6928315150057388,
+      "seed": 7,
+      "task": "wesad",
+      "test_f1": 0.0
+    },
+    {
+      "episodes": 3,
+      "loss": 0.6935517860554118,
+      "seed": 7,
+      "task": "physionet2015",
+      "test_f1": 0.0
+    }
+  ]
+}

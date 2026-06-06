@@ -1,0 +1,11 @@
+{
+  "note": "Clean-room deterministic checkpoint generated from config, not original supplementary weights.",
+  "parameter_report": {
+    "feature_flash_bytes": 45212,
+    "feature_model": 7958,
+    "quantum_policy": 8500,
+    "tensor_memory": 6336
+  },
+  "provenance": "clean_room_reverse_engineered_from_pdf",
+  "seed": 101
+}
